@@ -1,0 +1,14 @@
+{% block title %} Flask-Tutorial {% endblock %}
+<br><br>
+{% block posts %}
+    {% for post in posts%}
+        <div style="background-color: brown;">
+            {{post.id}}
+            <br>
+            {{post.title}}
+            <br>
+            {{post.content}}
+        </div>
+        <br>
+    {% endfor%}
+{% endblock %}
