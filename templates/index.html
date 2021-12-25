@@ -1,14 +1,18 @@
-{% block title %} Flask-Tutorial {% endblock %}
-<br><br>
-{% block posts %}
-    {% for post in posts%}
-        <div style="background-color: brown;">
-            {{post.id}}
-            <br>
-            {{post.title}}
-            <br>
-            {{post.content}}
-        </div>
-        <br>
-    {% endfor%}
-{% endblock %}
+<html>
+    {% block body %}
+        <a href="{{url_for('create_post')}}" style="background-color: grey;">創建貼文</a>
+        <br><br>
+        {% block posts %}
+            {% for post in posts%}
+                <div style="background-color: brown;">
+                    {{post.id}}
+                    <br>
+                    {{post.title}}
+                    <br>
+                    {{post.content}}
+                </div>
+                <br>
+            {% endfor%}
+        {% endblock %}
+    {% endblock %}
+</html>
