@@ -5,11 +5,9 @@
         {% block posts %}
             {% for post in posts%}
                 <div style="background-color: brown;">
-                    {{post.id}}
-                    <br>
-                    {{post.title}}
-                    <br>
-                    {{post.content}}
+                    <h2>ID: {{post.id}}</h2>
+                    <h1>Title: {{post.title}}</h1>
+                    <p>Content: {{post.content}}</p>
                 </div>
                 <br>
             {% endfor%}

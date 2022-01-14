@@ -10,21 +10,25 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret_key'
 db = SQLAlchemy(app)
 
+# Post class, including id, title and content
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False, unique=False)
     content = db.Column(db.Text)
 
+# Post form
 class PostForm(FlaskForm):
     title = StringField('標題', validators=[DataRequired()])
     content = TextAreaField('内容',validators=[DataRequired()])
     submit = SubmitField('送出')
 
+# Index page, rendering all posts out in the page
 @app.route('/')
 def index():
     posts = Posts.query.order_by(Posts.id).all()
     return render_template('index.html', posts=posts)
 
+# Create post page
 @app.route('/post', methods=['GET', 'POST'])
 def create_post():
     form = PostForm()
